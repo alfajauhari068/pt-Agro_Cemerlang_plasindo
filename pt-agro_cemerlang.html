@@ -1,568 +1,1053 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Agro Cemerlang Plasindo - Produsen Plastik Pertanian Tulungagung</title>
-    <meta name="description" content="Mulsa plastik hitam perak, grenjeng, terpal, waring berkualitas tinggi untuk pertanian, perkebunan, perikanan. Tulungagung, Jawa Timur.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      PT Agro Cemerlang Plasindo - Produsen Plastik Pertanian Tulungagung
+    </title>
+    <meta
+      name="description"
+      content="Mulsa plastik hitam perak, grenjeng, terpal, waring berkualitas tinggi untuk pertanian, perkebunan, perikanan. Tulungagung, Jawa Timur."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-green: #10b981;
-            --dark-green: #047857;
-            --light-green: #6ee7b7;
-            --gray-900: #111827;
-            --gray-800: #1f2937;
-            --gray-700: #374151;
-            --gray-600: #4b5563;
-            --gray-500: #6b7280;
-            --gray-200: #e5e7eb;
-            --gray-100: #f3f4f6;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+      :root {
+        --bg: #eef6f2;
+        --surface: #ffffff;
+        --surface-strong: #f8fafc;
+        --text: #122620;
+        --muted: #54645d;
+        --primary: #0f6b4c;
+        --primary-soft: #d0f1e0;
+        --accent: #10b981;
+        --border: rgba(14, 67, 43, 0.12);
+        --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+        --radius: 28px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Poppins", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .container {
+        width: min(1200px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        width: 100%;
+        height: 90px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        z-index: 1000;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .brand-tag {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-menu li a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        transition:
+          color 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .nav-menu li a:hover,
+      .nav-menu li a:focus-visible {
+        color: var(--primary);
+        transform: translateY(-1px);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .contact-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.9rem 1.4rem;
+        border-radius: 999px;
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+        text-decoration: none;
+        font-weight: 600;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .contact-pill:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 44px rgba(15, 23, 42, 0.22);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .hamburger span {
+        width: 26px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--text);
+      }
+
+      .hero {
+        min-height: calc(100vh - 90px);
+        padding: 7rem 0 4rem;
+        background: linear-gradient(135deg, #0f766e 0%, #047857 100%);
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.18),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.08),
+            transparent 20%
+          );
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 2rem;
+        width: 100%;
+        align-items: center;
+        justify-items: start;
+      }
+
+      .hero-content {
+        max-width: 680px;
+        padding: 0 1rem;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 5vw, 4.8rem);
+        line-height: 1;
+        margin: 0 0 1.2rem;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 1rem 1.8rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          background 0.25s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: white;
+        color: var(--primary);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.16);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+      }
+
+      .hero-stat {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .hero-stat div {
+        background: rgba(255, 255, 255, 0.12);
+        padding: 1rem 1.2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-stat strong {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 2.2rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .section-header p {
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .section-soft {
+        background: var(--surface-strong);
+      }
+
+      .profil-grid,
+      .products-grid,
+      .services-grid,
+      .gallery-grid,
+      .contact-grid {
+        display: grid;
+        gap: 1.75rem;
+      }
+
+      .profil-grid,
+      .services-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        display: grid;
+        gap: 1.75rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: start;
+      }
+
+      .gallery-grid {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scroll-snap-type: x mandatory;
+      }
+
+      .gallery-card {
+        min-width: 320px;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+      }
+
+      .card,
+      .product-card,
+      .service-card,
+      .contact-card,
+      .contact-highlight {
+        background: var(--surface);
+        border-radius: 28px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        padding: 2rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .card:hover,
+      .product-card:hover,
+      .service-card:hover,
+      .contact-card:hover,
+      .contact-highlight:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+
+      .card h3,
+      .product-card h3,
+      .service-card h3,
+      .contact-card h3,
+      .contact-highlight h3 {
+        margin-top: 0;
+        color: var(--text);
+      }
+
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100%;
+      }
+
+      .product-icon,
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.3rem;
+        font-size: 1.5rem;
+        color: white;
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+      }
+
+      .product-card p,
+      .service-card p,
+      .contact-card p,
+      .contact-highlight p {
+        color: var(--muted);
+        margin-bottom: 1.25rem;
+      }
+
+      .product-cta {
+        margin-top: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0.95rem 1rem;
+        border-radius: 999px;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .product-cta:hover {
+        background: #0c5a40;
+      }
+
+      .catalog-cta {
+        text-align: center;
+        margin-top: 1.8rem;
+      }
+
+      .gallery-card {
+        overflow: hidden;
+        border-radius: 28px;
+        min-height: 240px;
+      }
+
+      .gallery-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .gallery-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 0.8rem;
+      }
+
+      .contact-card .text-sm {
+        margin-bottom: 0.75rem;
+        line-height: 1.7;
+      }
+
+      .contact-buttons {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .whatsapp-btn {
+        background: #25d366 !important;
+        color: white !important;
+        box-shadow: 0 18px 36px rgba(37, 211, 102, 0.22);
+      }
+
+      .contact-highlight {
+        background: var(--primary);
+        color: white;
+      }
+
+      .contact-highlight h3 {
+        color: white;
+      }
+
+      .contact-highlight p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .contact-actions {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      footer {
+        background: linear-gradient(135deg, var(--primary), #065f46);
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 2rem;
+        padding: 3rem 0 2rem;
+      }
+
+      .footer-grid > div h3,
+      .footer-grid > div h4 {
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .social-grid {
+        display: flex;
+        gap: 0.85rem;
+        margin-top: 1rem;
+      }
+
+      .social-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.16);
+        color: white;
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease;
+      }
+
+      .social-btn:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .footer-note {
+        text-align: center;
+        padding: 2rem 0 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: all 0.7s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 768px) {
+        section {
+          padding: 6rem 0;
+        }
+        .hero-buttons {
+          justify-content: flex-start;
+        }
+        .contact-grid {
+          grid-template-columns: 1.2fr 0.8fr;
+        }
+        .contact-buttons {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 992px) {
+        .hero-grid {
+          grid-template-columns: minmax(520px, 1fr) 1fr;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Poppins', system-ui, sans-serif; 
-            font-size: 16px; 
-            line-height: 1.6; 
-            color: var(--gray-800); 
+        .hero-content {
+          grid-column: 1;
+          padding-left: 2rem;
+          max-width: 680px;
         }
 
-        /* Typography */
-        h1 { font-size: 36px; line-height: 1.2; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem; }
-        h2 { font-size: 26px; line-height: 1.3; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem; }
-        h3 { font-size: 20px; line-height: 1.4; font-weight: 600; color: var(--gray-900); margin-bottom: 1rem; }
-        p { font-size: 16px; line-height: 1.6; color: var(--gray-700); margin-bottom: 1rem; }
-        .text-sm { font-size: 14px; line-height: 1.5; color: var(--gray-600); }
+        .hero-buttons {
+          justify-content: flex-start;
+        }
+      }
 
-        @media (max-width: 575px) {
-            h1 { font-size: 32px; }
-            h2 { font-size: 24px; }
-            h3 { font-size: 18px; }
-            body { font-size: 15px; }
-            .text-sm { font-size: 13px; }
+      @media (max-width: 991px) {
+        .nav-menu {
+          position: absolute;
+          inset: 100% 1rem auto 1rem;
+          flex-direction: column;
+          gap: 0;
+          background: white;
+          border-radius: 22px;
+          box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+          overflow: hidden;
+          display: none;
         }
+        .nav-menu.active {
+          display: flex;
+        }
+        .nav-menu li a {
+          padding: 1rem 1.4rem;
+          border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+        .nav-menu li:last-child a {
+          border-bottom: none;
+        }
+        .header-actions {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .hero {
+          padding-top: 6.5rem;
+        }
+      }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; width: 100%; }
-
-        /* Background Motif */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(16,185,129,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(4,120,87,0.03) 0%, transparent 50%),
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(16,185,129,0.02) 10px, rgba(16,185,129,0.02) 20px);
-            z-index: -1;
-            pointer-events: none;
+      @media (max-width: 575px) {
+        .hero h1 {
+          font-size: 2.8rem;
         }
-
-        /* Header */
-        header { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            background: rgba(255,255,255,0.98); 
-            backdrop-filter: blur(12px); 
-            z-index: 1000; 
-            box-shadow: var(--shadow-md); 
+        .hero p {
+          font-size: 1rem;
         }
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1rem 1rem; 
+        .brand-tag {
+          font-size: 0.82rem;
         }
-        .logo { 
-            font-size: clamp(1.2rem, 4vw, 1.6rem); 
-            font-weight: 700; 
-            color: var(--dark-green); 
-        }
-        .nav-menu { 
-            display: none; 
-            position: absolute; 
-            top: 100%; 
-            left: 0; 
-            right: 0; 
-            background: white; 
-            box-shadow: var(--shadow-lg); 
-            flex-direction: column; 
-            padding: 0; 
-        }
-        .nav-menu.active { display: flex; }
-        .nav-menu a { 
-            padding: 1rem 2rem; 
-            color: var(--gray-700); 
-            font-weight: 500; 
-            border-bottom: 1px solid var(--gray-200); 
-            transition: all 0.3s; 
-        }
-        .nav-menu a:hover { background: var(--gray-100); color: var(--primary-green); }
-        .hamburger { 
-            display: flex; 
-            flex-direction: column; 
-            cursor: pointer; 
-            gap: 4px; 
-            padding: 4px; 
-        }
-        .hamburger span { 
-            height: 3px; 
-            width: 24px; 
-            background: var(--dark-green); 
-            border-radius: 2px; 
-            transition: all 0.3s; 
-        }
-        @media (min-width: 992px) {
-            .hamburger { display: none; }
-            .nav-menu { 
-                position: static; 
-                display: flex; 
-                flex-direction: row; 
-                background: none; 
-                box-shadow: none; 
-                padding: 0; 
-            }
-            .nav-menu a { 
-                padding: 0.5rem 1.5rem; 
-                border-bottom: none; 
-            }
-        }
-
-        /* Hero */
-        .hero { 
-            min-height: 100vh; 
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            color: white; 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .hero::before { 
-            content: ''; 
-            position: absolute; 
-            inset: 0; 
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        .hero-content { 
-            max-width: 800px; 
-            padding: 2rem 1rem; 
-            position: relative; 
-            z-index: 2; 
-        }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 1rem; }
-        .hero-lead { font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 2.5rem; opacity: 0.95; }
-        .hero-buttons { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-        @media (min-width: 576px) { .hero-buttons { flex-direction: row; } }
-        .btn { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 0.5rem; 
-            padding: 1rem 2rem; 
-            border-radius: 50px; 
-            font-weight: 600; 
-            text-decoration: none; 
-            transition: all 0.3s; 
-            font-size: 16px; 
-            box-shadow: var(--shadow-md); 
-        }
-        .btn-primary { background: #ef4444; color: white; }
-        .btn-primary:hover { background: #dc2626; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
-        .btn-secondary:hover { background: white; color: var(--dark-green); }
-
-        /* Section Base */
-        section { padding: 5rem 1rem; }
-        @media (min-width: 768px) { section { padding: 6rem 2rem; } }
-        section:nth-child(odd) { background: #fafbfc; }
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 3rem; }
-        .section-lead { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--gray-600); }
-
-        /* Card System */
-        .card { 
-            background: white; 
-            border-radius: 16px; 
-            padding: 2rem; 
-            box-shadow: var(--shadow-sm); 
-            border: 1px solid var(--gray-200); 
-            transition: all 0.3s; 
-        }
-        .card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
-        .card-icon { 
-            width: 64px; 
-            height: 64px; 
-            border-radius: 12px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin: 0 auto 1.5rem; 
-            font-size: 1.5rem; 
-            color: white; 
-            font-weight: 700; 
-        }
-
-        /* Products */
-        .products-grid { 
-            display: grid; 
-            gap: 1.5rem; 
-            grid-template-columns: 1fr; 
-        }
-        @media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
-        .product-card { text-align: center; }
-        .product-icon { background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); }
-        .product-name { margin-bottom: 1rem; }
-        .product-features { margin-bottom: 1.5rem; color: var(--gray-600); }
-        .product-cta { 
-            background: var(--primary-green); 
-            color: white; 
-            padding: 0.75rem 1.5rem; 
-            border-radius: 25px; 
-            font-weight: 500; 
-        }
-        .product-cta:hover { background: var(--dark-green); }
-
-        /* Services */
-        .services-grid { 
-            display: grid; 
-            gap: 1.5rem; 
-            grid-template-columns: 1fr; 
-        }
-        @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-        .service-card .card-icon { background: linear-gradient(135deg, var(--primary-green), #34d399); }
-
-        /* Gallery */
-        .gallery-grid { 
-            display: grid; 
-            gap: 1rem; 
-            grid-template-columns: repeat(2, 1fr); 
-        }
-        @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
-        .gallery-card { 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: var(--shadow-sm); 
-            aspect-ratio: 4/3; 
-        }
-        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .gallery-card:hover img { transform: scale(1.05); }
-
-        /* Contact */
-        .contact-grid { 
-            display: grid; 
-            gap: 2rem; 
-            grid-template-columns: 1fr; 
-        }
-        @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-        .contact-card { text-align: center; }
-        .contact-buttons { display: flex; flex-direction: column; gap: 1rem; }
-        @media (min-width: 640px) { .contact-buttons { flex-direction: row; } }
-        .whatsapp-btn { 
-            background: #25d366 !important; 
-            font-size: 1.1rem; 
-            padding: 1.25rem 2rem !important; 
-        }
-
-        /* Footer */
-        footer { 
-            background: linear-gradient(135deg, var(--dark-green), #065f46); 
-            color: white; 
-            padding: 3rem 1rem 2rem; 
-        }
-        .footer-grid { 
-            display: grid; 
-            gap: 2rem; 
-            grid-template-columns: 1fr; 
-        }
-        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
-        .footer-section h4 { margin-bottom: 1rem; color: white; }
-        .footer-section a { color: rgba(255,255,255,0.8); transition: color 0.3s; display: block; margin-bottom: 0.5rem; }
-        .footer-section a:hover { color: white; }
-        .social-grid { display: flex; gap: 1rem; }
-        .social-btn { 
-            width: 44px; 
-            height: 44px; 
-            border-radius: 50%; 
-            background: rgba(255,255,255,0.15); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: all 0.3s; 
-        }
-        .social-btn:hover { background: white; transform: translateY(-2px); }
-
-        /* Animations */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* Responsive */
-        @media (min-width: 576px) { .col-2 { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 768px) { .col-3 { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 992px) { .col-4 { grid-template-columns: repeat(4, 1fr); } }
+      }
     </style>
-</head>
-<body>
-    <!-- Header: logo kiri, menu tengah/kanan, kontak kanan atas -->
+  </head>
+  <body>
     <header>
-        <nav class="container">
-            <div class="logo">ACP</div>
-            <ul class="nav-menu">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#profil">Profil</a></li>
-                <li><a href="#produk">Produk</a></li>
-                <li><a href="#layanan">Layanan</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-            <div class="header-contact">
-                <a href="tel:+623557624770" class="text-sm">📞 0355-7624770</a>
-            </div>
-            <button class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
+      <div class="container header-inner">
+        <div class="brand-group">
+          <div class="logo">ACP</div>
+          <span class="brand-tag">Plastik Pertanian Modern</span>
+        </div>
+
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <a href="tel:+623557624770" class="contact-pill">📞 0355-7624770</a>
+        </div>
+      </div>
     </header>
 
-    <!-- Hero: 2 kolom kiri teks + kanan SVG pertanian -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content fade-in">
-                    <h1>PT Agro Cemerlang Plasindo</h1>
-                    <p>Produsen mulsa plastik, terpal, waring untuk pertanian modern. Teknologi 3-layer anti-UV tahan 2+ tahun.</p>
-                    <div class="hero-buttons">
-                        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
-                        <a href="#kontak" class="btn btn-secondary">WhatsApp</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <svg viewBox="0 0 400 300" class="hero-svg">
-                        <!-- Lahan pertanian dengan mulsa -->
-                        <rect x="50" y="200" width="300" height="100" rx="10" fill="#065f46" opacity="0.8"/>
-                        <rect x="60" y="180" width="280" height="20" fill="#000" opacity="0.9"/>
-                        <rect x="70" y="210" width="260" height="20" fill="#c0c0c0" opacity="0.8"/>
-                        <!-- Tanaman -->
-                        <circle cx="150" cy="150" r="15" fill="#22c55e"/>
-                        <circle cx="250" cy="140" r="12" fill="#22c55e"/>
-                        <!-- Gunung latar -->
-                        <path d="M0 250 Q100 200 200 250 T400 250" fill="#064e3b" opacity="0.6"/>
-                    </svg>
-                </div>
+    <main>
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content fade-in">
+            <h1>
+              Produk Plastik Pertanian Premium<br />Untuk Hasil yang Lebih
+              Maksimal
+            </h1>
+            <p>
+              PT Agro Cemerlang Plasindo menyediakan mulsa, terpal, dan waring
+              berkualitas dengan teknologi anti-UV untuk efisiensi tanaman dan
+              hasil panen lebih baik.
+            </p>
+            <div class="hero-buttons">
+              <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+              <a href="#kontak" class="btn btn-secondary">Hubungi Kami</a>
             </div>
-        </div>
-    </section>
 
-    <!-- Profil -->
-    <section id="profil">
-        <div class="container">
-            <div class="section-header">
-                <h2>Tentang Perusahaan</h2>
-                <p>Produsen plastik pertanian terpercaya di Tulungagung sejak 20 tahun</p>
+            <div class="hero-stat">
+              <div>
+                <strong>20+</strong>
+                Tahun pengalaman
+              </div>
+              <div>
+                <strong>30+</strong>
+                Produk & layanan
+              </div>
             </div>
-            <div class="profil-grid">
-                <div class="card fade-in">
-                    <h3>Visi & Misi</h3>
-                    <p>Memberikan solusi plastik tahan lama untuk meningkatkan produktivitas petani Indonesia melalui inovasi teknologi 3-layer.</p>
-                </div>
-                <div class="card fade-in">
-                    <h3>Teknologi Produksi</h3>
-                    <p>Mesin ekstrusi multi-layer dengan aditif UV stabilizer, ketebalan presisi 10-200 micron, kontrol kualitas ketat.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Produk -->
-    <section id="produk">
-        <div class="container">
-            <div class="section-header">
-                <h2>Produk Unggulan</h2>
-                <p>Pilih produk terbaik untuk kebutuhan pertanian Anda</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card fade-in">
-                    <div class="product-icon">🟫⬜</div>
-                    <h3>Mulsa Hitam Perak</h3>
-                    <p>Sisi hitam blok gulma, sisi perak refleksi cahaya. Hemat air 30%, tahan UV 2 tahun.</p>
-                    <a href="#kontak" class="product-cta">Order Mulsa</a>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-icon">🔵</div>
-                    <h3>Terpal HDPE</h3>
-                    <p>Tahan kimia pupuk, anti sobek, kolam ikan & penutup lahan. Ketebalan 100-200 micron.</p>
-                    <a href="#kontak" class="product-cta">Order Terpal</a>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-icon">🟩</div>
-                    <h3>Waring Shade Net</h3>
-                    <p>Naungan 30-50%, anti burung hama. HDPE berkualitas tinggi, custom size.</p>
-                    <a href="#kontak" class="product-cta">Order Waring</a>
-                </div>
-            </div>
-            <div class="catalog-cta">
-                <a href="katalog.pdf" class="btn btn-primary" download>📥 Download Katalog PDF Lengkap</a>
-            </div>
+          <div class="hero-visual fade-in">
+            <svg viewBox="0 0 520 360" class="hero-svg">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#34d399" />
+                  <stop offset="100%" stop-color="#047857" />
+                </linearGradient>
+              </defs>
+              <rect
+                x="30"
+                y="120"
+                width="460"
+                height="210"
+                rx="36"
+                fill="#0f766e"
+                opacity="0.95"
+              />
+              <rect
+                x="50"
+                y="140"
+                width="420"
+                height="28"
+                rx="14"
+                fill="#0f766e"
+                opacity="0.7"
+              />
+              <rect
+                x="60"
+                y="174"
+                width="400"
+                height="20"
+                rx="10"
+                fill="#ffffff"
+                opacity="0.12"
+              />
+              <rect
+                x="80"
+                y="190"
+                width="380"
+                height="20"
+                rx="10"
+                fill="#22c55e"
+                opacity="0.22"
+              />
+              <path
+                d="M100 200 Q180 140 260 200 T420 200"
+                fill="#10b981"
+                opacity="0.22"
+              />
+              <circle cx="170" cy="140" r="20" fill="url(#grad1)" />
+              <circle cx="330" cy="130" r="16" fill="url(#grad1)" />
+              <g fill="#ffffff" opacity="0.95">
+                <rect x="90" y="240" width="90" height="30" rx="14" />
+                <rect x="270" y="240" width="130" height="30" rx="14" />
+              </g>
+            </svg>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Layanan -->
-    <section id="layanan">
+      <section id="profil" class="section-soft">
         <div class="container">
-            <div class="section-header">
-                <h2>Layanan Kami</h2>
-                <p>Dari konsultasi hingga pengiriman di seluruh Indonesia</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">📞</div>
-                    <h3>Konsultasi Gratis</h3>
-                    <p>Pilih produk sesuai lahan & tanaman Anda melalui WA atau telepon</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">📋</div>
-                    <h3>Custom Order</h3>
-                    <p>Ukuran & spesifikasi sesuai kebutuhan, produksi cepat 3-7 hari</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🚚</div>
-                    <h3>Pengiriman Nasional</h3>
-                    <p>Packing profesional, tracking real-time, ongkir kompetitif</p>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="section-header">
+            <h2>Tentang PT Agro Cemerlang Plasindo</h2>
+            <p>
+              Produsen plastik pertanian unggulan di Tulungagung dengan standar
+              kualitas ketat untuk mendukung pertanian modern Indonesia.
+            </p>
+          </div>
 
-    <!-- Galeri -->
-    <section id="galeri">
+          <div class="profil-grid">
+            <div class="card fade-in">
+              <h3>Visi & Misi</h3>
+              <p>
+                Menjadi mitra terpercaya petani dengan produk plastik pertanian
+                inovatif yang tahan lama, efektif, dan ramah lingkungan.
+              </p>
+            </div>
+            <div class="card fade-in">
+              <h3>Teknologi Produksi</h3>
+              <p>
+                Mesin produksi modern dan kontrol kualitas ketat memastikan
+                produk konsisten, anti-UV, dan tahan lama di lapangan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="produk">
         <div class="container">
-            <div class="section-header">
-                <h2>Galeri & Katalog</h2>
-                <p>Aplikasi produk di lapangan dan spesifikasi lengkap</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1587014611670-f64f685f1f23?w=800&h=600&fit=crop" alt="Mulsa hitam perak di lahan tomat" loading="lazy">
-                </div>
-                <div class="gallery-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop" alt="Waring net melindungi tanaman" loading="lazy">
-                </div>
-                <div class="gallery-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop" alt="Terpal HDPE untuk kolam ikan" loading="lazy">
-                </div>
-                <div class="gallery-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1611100481087-2eb83c6dd97c?w=800&h=600&fit=crop" alt="Fasilitas produksi modern" loading="lazy">
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="katalog.pdf" class="btn btn-primary" download style="font-size: 1.1rem;">📚 Download Katalog PDF</a>
-            </div>
-        </div>
-    </section>
+          <div class="section-header">
+            <h2>Produk Unggulan</h2>
+            <p>
+              Pilih dari rangkaian produk kami untuk kebutuhan mulsa, terpal,
+              dan waring dengan kualitas terbaik.
+            </p>
+          </div>
 
-    <!-- Kontak -->
-    <section id="kontak">
+          <div class="products-grid">
+            <div class="product-card fade-in">
+              <div class="product-icon">🟫</div>
+              <div>
+                <h3>Mulsa Hitam Perak</h3>
+                <p>
+                  Sisi hitam untuk blok gulma dan sisi perak untuk refleksi
+                  cahaya. Hemat air, tahan UV, dan mendukung pertumbuhan
+                  optimal.
+                </p>
+              </div>
+              <a href="#kontak" class="product-cta">Pesan Sekarang</a>
+            </div>
+
+            <div class="product-card fade-in">
+              <div class="product-icon">🟦</div>
+              <div>
+                <h3>Terpal HDPE</h3>
+                <p>
+                  Tahan air, anti sobek, cocok untuk kolam ikan, penutup gudang,
+                  dan perlindungan lahan pertanian.
+                </p>
+              </div>
+              <a href="#kontak" class="product-cta">Pesan Sekarang</a>
+            </div>
+
+            <div class="product-card fade-in">
+              <div class="product-icon">🟩</div>
+              <div>
+                <h3>Waring Shade Net</h3>
+                <p>
+                  Naungan 30–50%, anti hama, cocok untuk tanaman hortikultura
+                  dan area budidaya.
+                </p>
+              </div>
+              <a href="#kontak" class="product-cta">Pesan Sekarang</a>
+            </div>
+          </div>
+
+          <div class="catalog-cta fade-in">
+            <a href="katalog.pdf" class="btn btn-primary" download
+              >📥 Download Katalog Lengkap</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="layanan" class="section-soft">
         <div class="container">
-            <div class="section-header">
-                <h2>Hubungi Kami</h2>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-card fade-in">
-                    <h3>Informasi Kontak</h3>
-                    <p class="text-sm"><strong>Alamat:</strong><br>Jl. KH/KHR Abdul Fattah<br>Desa Batangsaren, Kec. Kauman<br>Tulungagung 66261, Jawa Timur</p>
-                    <p class="text-sm"><strong>Telepon:</strong> (0355) 7624770</p>
-                    <p class="text-sm"><strong>Email:</strong> info@agrocemerlangplasindo.com</p>
-                    <p class="text-sm"><strong>Jam:</strong> Senin–Sabtu 08.00–17.00</p>
-                </div>
-                <div class="contact-card fade-in">
-                    <h3>Mulai Pesan Sekarang</h3>
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/623557624770?text=Halo%20Agro%20Cemerlang%2C%20saya%20ingin%20order%20produk" class="btn btn-primary whatsapp-btn">💬 WhatsApp</a>
-                        <a href="https://goo.gl/maps/example" class="btn btn-secondary">🗺️ Google Maps</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="section-header">
+            <h2>Layanan Kami</h2>
+            <p>
+              Layanan lengkap mulai konsultasi produk hingga pengiriman
+              nasional, untuk memudahkan seluruh petani.
+            </p>
+          </div>
 
-    <!-- Footer 3 kolom -->
+          <div class="services-grid">
+            <div class="service-card fade-in">
+              <div class="service-icon">📞</div>
+              <h3>Konsultasi Gratis</h3>
+              <p>
+                Diskusi produk terbaik untuk lahan dan kebutuhan panen Anda.
+              </p>
+            </div>
+            <div class="service-card fade-in">
+              <div class="service-icon">📋</div>
+              <h3>Custom Order</h3>
+              <p>
+                Ukuran sesuai permintaan dan produksi cepat dengan spesifikasi
+                ideal.
+              </p>
+            </div>
+            <div class="service-card fade-in">
+              <div class="service-icon">🚚</div>
+              <h3>Pengiriman Nasional</h3>
+              <p>
+                Pengiriman aman ke seluruh Indonesia dengan packing profesional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeri">
+        <div class="container">
+          <div class="section-header">
+            <h2>Galeri Produk</h2>
+            <p>Contoh penggunaan produk di lapangan dan area produksi kami.</p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-card fade-in">
+              <img
+                src="https://images.unsplash.com/photo-1587014611670-f64f685f1f23?w=1000&h=750&fit=crop"
+                alt="Mulsa plastik di lapangan"
+              />
+            </div>
+            <div class="gallery-card fade-in">
+              <img
+                src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1000&h=750&fit=crop"
+                alt="Waring shade net"
+              />
+            </div>
+            <div class="gallery-card fade-in">
+              <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1000&h=750&fit=crop"
+                alt="Terpal HDPE"
+              />
+            </div>
+          </div>
+
+          <div class="catalog-cta fade-in">
+            <a href="katalog.pdf" class="btn btn-secondary" download
+              >📚 Unduh Katalog Produk</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="kontak" class="section-soft">
+        <div class="container">
+          <div class="section-header">
+            <h2>Hubungi Kami</h2>
+            <p>
+              Tim kami siap membantu permintaan produk, konsultasi, dan
+              pemesanan cepat.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card fade-in">
+              <h3>Informasi Kontak</h3>
+              <p class="text-sm">
+                <strong>Alamat:</strong><br />
+                Jl. KH/KHR Abdul Fattah, Desa Batangsaren, Kec. Kauman,
+                Tulungagung 66261, Jawa Timur
+              </p>
+              <p class="text-sm"><strong>Telepon:</strong> (0355) 7624770</p>
+              <p class="text-sm">
+                <strong>Email:</strong> info@agrocemerlangplasindo.com
+              </p>
+              <p class="text-sm">
+                <strong>Jam Kerja:</strong> Senin–Sabtu 08.00–17.00
+              </p>
+            </div>
+
+            <div class="contact-highlight fade-in">
+              <h3>Siap Pesan Sekarang?</h3>
+              <p>
+                Klik tombol di bawah untuk memulai chat WhatsApp atau melihat
+                lokasi kantor kami di Google Maps.
+              </p>
+              <div class="contact-actions">
+                <a
+                  href="https://wa.me/623557624770?text=Halo%20Agro%20Cemerlang,%20saya%20ingin%20order%20produk"
+                  class="btn btn-primary whatsapp-btn"
+                >
+                  💬 Chat WhatsApp
+                </a>
+                <a href="https://goo.gl/maps/example" class="btn btn-secondary">
+                  🗺️ Buka Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>PT Agro Cemerlang Plasindo</h3>
-                    <p class="text-sm">Plastik pertanian berkualitas untuk petani modern Indonesia</p>
-                    <div class="social-grid">
-                        <a href="#" class="social-btn">📘</a>
-                        <a href="#" class="social-btn">📷</a>
-                    </div>
-                </div>
-                <div>
-                    <h4>Menu Cepat</h4>
-                    <div class="footer-links">
-                        <a href="#home">Beranda</a>
-                        <a href="#profil">Profil</a>
-                        <a href="#produk">Produk</a>
-                        <a href="#layanan">Layanan</a>
-                        <a href="#kontak">Kontak</a>
-                    </div>
-                </div>
-                <div>
-                    <h4>Kontak</h4>
-                    <p class="text-sm">📞 (0355) 7624770</p>
-                    <p class="text-sm">📧 info@agrocemerlangplasindo.com</p>
-                    <p class="text-sm">📍 Tulungagung, Jawa Timur</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p class="text-sm">© 2024 PT Agro Cemerlang Plasindo. All Rights Reserved.</p>
-            </div>
+      <div class="container footer-grid">
+        <div>
+          <h3>PT Agro Cemerlang Plasindo</h3>
+          <p class="text-sm">
+            Solusi plastik pertanian berkualitas untuk petani modern Indonesia.
+          </p>
+          <div class="social-grid">
+            <a href="#" class="social-btn">📘</a>
+            <a href="#" class="social-btn">📷</a>
+          </div>
         </div>
+        <div>
+          <h4>Menu Cepat</h4>
+          <div class="footer-links">
+            <a href="#home">Beranda</a>
+            <a href="#profil">Profil</a>
+            <a href="#produk">Produk</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#kontak">Kontak</a>
+          </div>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <p class="text-sm">📞 (0355) 7624770</p>
+          <p class="text-sm">📧 info@agrocemerlangplasindo.com</p>
+          <p class="text-sm">📍 Tulungagung, Jawa Timur</p>
+        </div>
+      </div>
+      <div class="footer-note">
+        <p>© 2024 PT Agro Cemerlang Plasindo. All Rights Reserved.</p>
+      </div>
     </footer>
 
     <script>
-        // Mobile menu
-        document.querySelector('.hamburger').onclick = () => document.querySelector('.nav-menu').classList.toggle('active');
-        
-        // Smooth scroll & close menu
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(link.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
-                document.querySelector('.nav-menu').classList.remove('active');
-            });
-        });
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
 
-        // Header scroll
-        window.onscroll = () => {
-            document.querySelector('header').style.background = window.scrollY > 50 ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.92)';
-        };
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
 
-        // Intersection Observer animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          navMenu.classList.remove("active");
         });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      });
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        header.style.background =
+          window.scrollY > 50
+            ? "rgba(255,255,255,0.96)"
+            : "rgba(255,255,255,0.92)";
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      document.querySelectorAll(".fade-in").forEach((section) => {
+        observer.observe(section);
+      });
     </script>
-</body>
+  </body>
 </html>
